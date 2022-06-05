@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BroadageData.Migrations
 {
     [DbContext(typeof(BroadageDBContext))]
-    [Migration("20220605105820_yen1")]
-    partial class yen1
+    [Migration("20220605141120_yen2")]
+    partial class yen2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

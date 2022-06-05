@@ -10,6 +10,8 @@ namespace BroadageEntity.DTOs
     {
         public int MatchId { get; set; }
         public DateTime Date { get; set; }
+        public Nullable<int> CurrentMinute { get; set; }
+        public Nullable<int> Stoppage { get; set; }
         public HomeTeamDTO HomeTeam { get; set; }
         public AwayTeamDTO AwayTeam { get; set; }
         public StatusDTO Status { get; set; }

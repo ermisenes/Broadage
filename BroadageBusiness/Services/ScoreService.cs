@@ -21,9 +21,21 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(ScoreDTO dtoObject)
         {
-            Score entity = _mapper.Map<Score>(dtoObject);
+          //  Score entity = _mapper.Map<Score>(dtoObject);
 
-            await _unitOfWork.Scores.AddAsync(entity);
+            await _unitOfWork.Scores.AddAsync(new Score()
+            {
+                TeamId = dtoObject.TeamId,
+                Current = 1,
+                EextraTime = null,
+                MatchId = dtoObject.MatchId,
+                Regular = 1,
+                HalfTime = 1,
+                Penalties = null,
+            });
+
+
+            //await _unitOfWork.Scores.AddAsync(entity);
             await _unitOfWork.CommitAsync();
 
             return new ServiceResponse<bool>(true);
@@ -56,13 +68,13 @@ namespace BroadageBusiness.Services
             return new ServiceResponse<ScoreDTO>(scoreDTO);
         }
 
-        //public async Task<ScoreDTO> GetByMatchIdAndTeamIdAsync(int matchId, int teamId)
-        //{
-        //    Score score = await _unitOfWork.Scores.GetByMatchIdAndTeamIdAsync(matchId, teamId);
-        //    ScoreDTO scoreDTO = _mapper.Map<ScoreDTO>(score);
+        public async Task<ServiceResponse<ScoreDTO>> GetByMatchIdAndTeamIdAsync(int matchId, int teamId)
+        {
+            Score score = await _unitOfWork.Scores.GetByMatchIdAndTeamIdAsync(matchId, teamId);
+            ScoreDTO scoreDTO = _mapper.Map<ScoreDTO>(score);
 
-        //    return scoreDTO;
-        //}
+            return new ServiceResponse<ScoreDTO>(scoreDTO);
+        }
 
         public async Task<ServiceResponse<bool>> UpdateAsync(ScoreDTO dtoObject)
         {

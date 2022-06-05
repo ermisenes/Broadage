@@ -16,11 +16,11 @@ namespace BroadageEntity.Entities
         }
         public int MatchId { get; set; }
         public int TeamId { get; set; }
-        public int Regular { get; set; }
-        public int HalfTime { get; set; }
-        public int Penalties { get; set; }
-        public int EextraTime { get; set; }
-        public int Current { get; set; }
+        public Nullable<int> Regular { get; set; }
+        public Nullable<int> HalfTime { get; set; }
+        public Nullable<int> Penalties { get; set; }
+        public Nullable<int> EextraTime { get; set; }
+        public Nullable<int> Current { get; set; }
 
         public ICollection<AwayTeam> AwayTeams { get; set; }
         public ICollection<HomeTeam> HomeTeams { get; set; }

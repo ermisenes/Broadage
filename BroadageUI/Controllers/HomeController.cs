@@ -1,4 +1,5 @@
-﻿using BroadageEntity.IServices;
+﻿using BroadageEntity.DTOs;
+using BroadageEntity.IServices;
 using BroadageUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -25,11 +26,7 @@ namespace BroadageUI.Controllers
 
         public IActionResult Index()
         {
-
-            var dene = _scoreService.GetAllAsync();
-
             return View();
-
         }
 
         public IActionResult Privacy()

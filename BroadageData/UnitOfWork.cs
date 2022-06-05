@@ -1,4 +1,5 @@
-﻿using BroadageEntity;
+﻿using BroadageData.Repositories;
+using BroadageEntity;
 using BroadageEntity.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,18 @@ namespace BroadageData
     public class UnitOfWork : IUnitOfWork
     {
         private readonly BroadageDBContext _context;
-        public IAwayTeamRepository AwayTeams { get; private set; }
+        public UnitOfWork(BroadageDBContext context)
+        {
+            _context = context;
+            HomeTeams =new HomeTeamRepository(_context);
+            Matches = new MatchRepository(_context); 
+            Rounds = new RoundRepository(_context); 
+            Scores = new ScoreRepository(_context); 
+            Stages = new StageRepository(_context); 
+            Statuses = new StatusRepository(_context);
+            AwayTeams = new AwayTeamRepository(_context);
+            Tournaments = new TournamentRepository(_context); 
+        }
 
         public IHomeTeamRepository HomeTeams { get; private set; }
 
@@ -26,6 +38,8 @@ namespace BroadageData
         public IStatusRepository Statuses { get; private set; }
 
         public ITournamentRepository Tournaments { get; private set; }
+
+        public IAwayTeamRepository AwayTeams { get; private set; }
 
         public async Task<int> CommitAsync()
         {

@@ -9,6 +9,6 @@ namespace BroadageEntity.IServices
 {
     public interface IScoreService : IService<ScoreDTO, int>
     {
-        //Task<ScoreDTO> GetByMatchIdAndTeamIdAsync(int matchId, int teamId);
+        Task<ServiceResponse<ScoreDTO>> GetByMatchIdAndTeamIdAsync(int matchId, int teamId);
     }
 }

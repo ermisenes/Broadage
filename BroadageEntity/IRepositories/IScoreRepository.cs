@@ -10,6 +10,6 @@ namespace BroadageEntity.IRepositories
 {
     public interface IScoreRepository:IRepository<Score,int>
     {
-        //Task<Score> GetByMatchIdAndTeamIdAsync(int matchId, int teamId);
+        ValueTask<Score> GetByMatchIdAndTeamIdAsync(int matchId, int teamId);
     }
 }

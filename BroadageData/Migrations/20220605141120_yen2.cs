@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BroadageData.Migrations
 {
-    public partial class new4 : Migration
+    public partial class yen2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,14 +24,15 @@ namespace BroadageData.Migrations
                 name: "Scores",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MatchId = table.Column<int>(type: "int", nullable: false),
                     TeamId = table.Column<int>(type: "int", nullable: false),
-                    Regular = table.Column<int>(type: "int", nullable: false),
-                    HalfTime = table.Column<int>(type: "int", nullable: false),
-                    Penalties = table.Column<int>(type: "int", nullable: false),
-                    EextraTime = table.Column<int>(type: "int", nullable: false),
-                    Current = table.Column<int>(type: "int", nullable: false)
+                    Regular = table.Column<int>(type: "int", nullable: true),
+                    HalfTime = table.Column<int>(type: "int", nullable: true),
+                    Penalties = table.Column<int>(type: "int", nullable: true),
+                    EextraTime = table.Column<int>(type: "int", nullable: true),
+                    Current = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

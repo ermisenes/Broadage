@@ -17,9 +17,9 @@ namespace BroadageData.Repositories
         {
         }
 
-        //public async Task<Score> GetByMatchIdAndTeamIdAsync(int matchId, int teamId)
-        //{
-        //    return await _dbDataContext.Set<Score>().SingleOrDefaultAsync(x => x.MatchId == matchId && x.TeamId==teamId);
-        //}
+        public async ValueTask<Score> GetByMatchIdAndTeamIdAsync(int matchId, int teamId)
+        {
+            return await _dbDataContext.Set<Score>().SingleOrDefaultAsync(x => x.MatchId == matchId && x.TeamId == teamId);
+        }
     }
 }
