@@ -1,5 +1,4 @@
-﻿using BroadageConsoleApp;
-using BroadageUI.Models;
+﻿using BroadageUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

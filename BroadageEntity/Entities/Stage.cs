@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BroadageEntity.Entities
 {
-    public class Stage : BaseEntity
+    public class Stage : EntityBase<int>
     {
         public string Name { get; set; }
         public string ShortName { get; set; }

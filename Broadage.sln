@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadageData", "BroadageDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadageEntity", "BroadageEntity\BroadageEntity.csproj", "{7933AE4F-5A6B-448E-8C8E-BB9E16C588E7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadageBusiness", "BroadageBusiness\BroadageBusiness.csproj", "{C39E5068-EC00-4C26-A371-B767100A8FE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7933AE4F-5A6B-448E-8C8E-BB9E16C588E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7933AE4F-5A6B-448E-8C8E-BB9E16C588E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7933AE4F-5A6B-448E-8C8E-BB9E16C588E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39E5068-EC00-4C26-A371-B767100A8FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39E5068-EC00-4C26-A371-B767100A8FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39E5068-EC00-4C26-A371-B767100A8FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39E5068-EC00-4C26-A371-B767100A8FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

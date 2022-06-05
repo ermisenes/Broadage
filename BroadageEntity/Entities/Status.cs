@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BroadageEntity.Entities
 {
-    public class Status : BaseEntity
+    public class Status : EntityBase<int>
     {
         public string Name { get; set; }
         public string ShortName { get; set; }

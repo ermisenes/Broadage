@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BroadageEntity.Abstract
+namespace BroadageEntity.DTOs
 {
-    public class BaseEntity
+    public interface IDTO<TPrimaryKey>
     {
-        public int Id { get; set; }
+        TPrimaryKey Id { get; set; }
     }
 }

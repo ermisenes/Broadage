@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataSets\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

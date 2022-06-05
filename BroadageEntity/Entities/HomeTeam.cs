@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BroadageEntity.Entities
 {
-    public class HomeTeam : BaseEntity
+    public class HomeTeam : EntityBase<int>
     {
         public int HomeTeamId { get; set; }
         public string Name { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 namespace BroadageEntity.Entities
 {
-    public class Match:BaseEntity
+    public class Match:EntityBase<int>
     {
         public int MatchId { get; set; }
         public DateTime Date { get; set; }

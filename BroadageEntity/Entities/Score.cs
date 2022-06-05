@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BroadageEntity.Entities
 {
-    public class Score:BaseEntity
+    public class Score : EntityBase<int>
     {
         public Score()
         {
