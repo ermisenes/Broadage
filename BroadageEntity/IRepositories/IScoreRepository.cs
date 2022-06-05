@@ -1,4 +1,5 @@
-﻿using BroadageEntity.Entities;
+﻿using BroadageEntity.DTOs;
+using BroadageEntity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BroadageEntity.IRepositories
 {
-    public interface IScoreRepository:IRepository<ScoreDTO,int>
+    public interface IScoreRepository:IRepository<Score,int>
     {
     }
 }

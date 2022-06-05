@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BroadageEntity.IRepositories
 {
-    public interface IStageRepository : IRepository<StageDTO,int>
+    public interface IStageRepository : IRepository<Stage,int>
     {
     }
 }

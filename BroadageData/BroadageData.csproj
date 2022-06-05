@@ -16,8 +16,4 @@
     <ProjectReference Include="..\BroadageEntity\BroadageEntity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
