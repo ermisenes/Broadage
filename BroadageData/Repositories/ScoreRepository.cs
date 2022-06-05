@@ -1,5 +1,8 @@
-﻿using BroadageEntity.Entities;
+﻿using BroadageEntity;
+using BroadageEntity.DTOs;
+using BroadageEntity.Entities;
 using BroadageEntity.IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +16,10 @@ namespace BroadageData.Repositories
         public ScoreRepository(BroadageDBContext dbDataContext) : base(dbDataContext)
         {
         }
+
+        //public async Task<Score> GetByMatchIdAndTeamIdAsync(int matchId, int teamId)
+        //{
+        //    return await _dbDataContext.Set<Score>().SingleOrDefaultAsync(x => x.MatchId == matchId && x.TeamId==teamId);
+        //}
     }
 }

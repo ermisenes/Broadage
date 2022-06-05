@@ -1,4 +1,11 @@
+using AutoMapper;
+using BroadageBusiness.AutoMapping;
+using BroadageBusiness.Services;
 using BroadageData;
+using BroadageData.Repositories;
+using BroadageEntity;
+using BroadageEntity.IRepositories;
+using BroadageEntity.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +28,24 @@ namespace BroadageUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddDbContext<BroadageDBContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
             });
+
+            services.AddScoped<IScoreService, ScoreService>();
+            services.AddScoped<IScoreRepository, ScoreRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+            services.AddAutoMapper(typeof(Program).Assembly);
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

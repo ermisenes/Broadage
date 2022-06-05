@@ -1,4 +1,5 @@
-﻿using BroadageUI.Models;
+﻿using BroadageEntity.IServices;
+using BroadageUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,13 +14,20 @@ namespace BroadageUI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IScoreService _scoreService;
+
+
+        public HomeController(ILogger<HomeController> logger,IScoreService scoreService)
         {
             _logger = logger;
+            _scoreService = scoreService;
         }
 
         public IActionResult Index()
         {
+
+            var dene = _scoreService.GetAllAsync();
+
             return View();
 
         }
