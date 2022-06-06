@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BroadcaseConsoleApp.Models
 {
-    public class Score
+    public class xScore
     {
         public Nullable<int> regular { get; set; }
         public Nullable<int> halfTime { get; set; }

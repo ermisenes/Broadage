@@ -4,14 +4,16 @@ using BroadageData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BroadageData.Migrations
 {
     [DbContext(typeof(BroadageDBContext))]
-    partial class BroadageDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220606173029_ne1")]
+    partial class ne1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -6,12 +6,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="107.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BroadageBusiness\BroadageBusiness.csproj" />
+    <ProjectReference Include="..\BroadageData\BroadageData.csproj" />
     <ProjectReference Include="..\BroadageEntity\BroadageEntity.csproj" />
   </ItemGroup>
 

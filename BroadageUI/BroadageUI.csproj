@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BroadageBusiness\BroadageBusiness.csproj" />
     <ProjectReference Include="..\BroadageData\BroadageData.csproj" />
+    <ProjectReference Include="..\BroadcaseConsoleApp\BroadageConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>

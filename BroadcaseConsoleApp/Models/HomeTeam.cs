@@ -8,7 +8,7 @@ namespace BroadcaseConsoleApp.Models
 {
     public class HomeTeam
     {
-        public Score score { get; set; }
+        public xScore score { get; set; }
         public string name { get; set; }
         public string shortName { get; set; }
         public string mediumName { get; set; }

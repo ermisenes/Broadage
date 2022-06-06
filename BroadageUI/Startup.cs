@@ -1,5 +1,6 @@
 using AutoMapper;
 using BroadageBusiness.AutoMapping;
+using BroadageBusiness.Logger;
 using BroadageBusiness.Services;
 using BroadageData;
 using BroadageData.Repositories;
@@ -12,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLog;
+using System;
+using System.IO;
 
 namespace BroadageUI
 {
@@ -19,6 +23,7 @@ namespace BroadageUI
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/Nlog.config"));
             Configuration = configuration;
         }
 
@@ -33,6 +38,8 @@ namespace BroadageUI
             {
                 option.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
             });
+
+            services.AddSingleton<ILoggerManager, LoggerManager>();
 
             services.AddScoped<IScoreService, ScoreService>();
             services.AddScoped<IScoreRepository, ScoreRepository>();
@@ -52,6 +59,7 @@ namespace BroadageUI
                 mc.AddProfile(new MappingProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
+
             services.AddSingleton(mapper);
         }
 
