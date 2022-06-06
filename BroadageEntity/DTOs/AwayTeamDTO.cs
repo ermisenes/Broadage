@@ -1,7 +1,4 @@
-﻿using BroadageEntity.Entities;
-using System.Collections.Generic;
-
-namespace BroadageEntity.DTOs
+﻿namespace BroadageEntity.DTOs
 {
     public class AwayTeamDTO : DTOBase<int>
     {

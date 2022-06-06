@@ -8,7 +8,7 @@ namespace BroadageEntity.Entities
         public int HomeTeamId { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string MiddleName { get; set; }
+        public string MediumName { get; set; }
         public int ScoreId { get; set; }
         public Score Score { get; set; }
 

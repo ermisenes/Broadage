@@ -3,10 +3,7 @@ using BroadageEntity;
 using BroadageEntity.DTOs;
 using BroadageEntity.Entities;
 using BroadageEntity.IServices;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BroadageBusiness.Services
@@ -30,9 +27,9 @@ namespace BroadageBusiness.Services
             {
                 HomeTeamId = dtoObject.HomeTeamId,
                 Name=dtoObject.Name,
-                MiddleName=dtoObject.MiddleName,
+                MediumName=dtoObject.MediumName,
                 ShortName=dtoObject.ShortName,
-                ScoreId=dtoObject.Scores.Id
+                ScoreId = dtoObject.Scores.Id
             });
 
 
@@ -54,10 +51,10 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<List<HomeTeamDTO>>> GetAllAsync()
         {
-            List<HomeTeam> scores = await _unitOfWork.HomeTeams.GetAllAsync();
-            List<HomeTeamDTO> scoreDTOs = _mapper.Map<List<HomeTeamDTO>>(scores);
+            List<HomeTeam> homeTeams = await _unitOfWork.HomeTeams.GetAllAsync();
+            List<HomeTeamDTO> homeTeamDTOs = _mapper.Map<List<HomeTeamDTO>>(homeTeams);
 
-            return new ServiceResponse<List<HomeTeamDTO>>(scoreDTOs);
+            return new ServiceResponse<List<HomeTeamDTO>>(homeTeamDTOs);
         }
 
         public async Task<ServiceResponse<HomeTeamDTO>> GetByIdAsync(int id)
