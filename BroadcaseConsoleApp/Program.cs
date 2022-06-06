@@ -1,4 +1,5 @@
-﻿using BroadcaseConsoleApp.Models;
+﻿using BroadageEntity.IServices;
+using BroadcaseConsoleApp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace BroadageConsoleApp
 {
     public class Program
     {
-        public static  void Main(string[] args)
+        public void Main(string[] args)
         {
             string key = "842824df-e28b-4ed9-90b9-b01f12102538";
             string languageId = "2";
@@ -25,7 +26,7 @@ namespace BroadageConsoleApp
             {
                 todaysDate = String.Concat("0", todaysDate);
             }
-            var url = $"https://s0-sports-data-api.broadage.com/soccer/match/list?date=29/05/2022";
+            var url = $"https://s0-sports-data-api.broadage.com/soccer/match/list?date=05/06/2022";
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
             client.DefaultRequestHeaders.Add("languageId", languageId);
@@ -43,12 +44,7 @@ namespace BroadageConsoleApp
             {
                 foreach (var match in matches)
                 {
-                    var matchID = match.id;
-                    var away = match.awayTeam.id;
-                    var home=match.homeTeam.id;
-                    Console.WriteLine("Maç ID:" + matchID+" Misarif:" + away+ " Evsahibi:" + home + "\n");
-                    //var dbControlMatches = EfCoreMatchRepository.ControlMatchDetails(match).Result;
-                    // var dbControlMatches = ControlMatchDetails(match).Result;
+
                 }
             }
         }

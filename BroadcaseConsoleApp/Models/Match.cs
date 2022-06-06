@@ -1,31 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BroadageConsoleApp.Models;
+using Newtonsoft.Json;
+using System;
 
 namespace BroadcaseConsoleApp.Models
 {
-
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<List<Root>>(myJsonResponse);
-    public class AwayTeam
-    {
-        public Score score { get; set; }
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public string mediumName { get; set; }
-        public int id { get; set; }
-    }
-
-    public class HomeTeam
-    {
-        public Score score { get; set; }
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public string mediumName { get; set; }
-        public int id { get; set; }
-    }
-
     public class Match
     {
         public HomeTeam homeTeam { get; set; }
@@ -36,42 +14,98 @@ namespace BroadcaseConsoleApp.Models
         public Tournament tournament { get; set; }
         public Stage stage { get; set; }
         public Round round { get; set; }
+        [JsonProperty("times")]
+        public Times times { get; set; }
     }
 
-    public class Round
+    /*
+    public partial class Match
     {
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public int id { get; set; }
+        [JsonProperty("homeTeam")]
+        public Team HomeTeam { get; set; }
+
+        [JsonProperty("awayTeam")]
+        public Team AwayTeam { get; set; }
+
+        [JsonProperty("status")]
+        public Round Status { get; set; }
+
+        [JsonProperty("date")]
+        public string Date { get; set; }
+
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("tournament")]
+        public Round Tournament { get; set; }
+
+        [JsonProperty("stage")]
+        public Round Stage { get; set; }
+
+        [JsonProperty("round")]
+        public Round Round { get; set; }
+
+        [JsonProperty("times")]
+        public Times Times { get; set; }
     }
 
-    public class Score
+    public partial class Team
     {
-        public int regular { get; set; }
-        public int halfTime { get; set; }
-        public int current { get; set; }
+        [JsonProperty("score", NullValueHandling = NullValueHandling.Ignore)]
+        public Score Score { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("shortName")]
+        public string ShortName { get; set; }
+
+        [JsonProperty("mediumName")]
+        public string MediumName { get; set; }
+
+        [JsonProperty("id")]
+        public long Id { get; set; }
     }
 
-    public class Stage
+    public partial class Score
     {
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public int id { get; set; }
+        [JsonProperty("regular")]
+        public long? Regular { get; set; }
+
+        [JsonProperty("halfTime")]
+        public long? HalfTime { get; set; }
+
+        [JsonProperty("current")]
+        public long? Current { get; set; }
+
+        [JsonProperty("extraTime")]
+        public long? ExtraTime { get; set; }
+
+        [JsonProperty("penalties")]
+        public long? Penalties { get; set; }
+
     }
 
-    public class Status
+    public partial class Round
     {
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public int id { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("shortName")]
+        public string ShortName { get; set; }
+
+        [JsonProperty("id")]
+        public long Id { get; set; }
     }
 
-    public class Tournament
+    public partial class Times
     {
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public int id { get; set; }
-    }
+        [JsonProperty("currentMinute")]
+        public int? CurrentMinute { get; set; }
 
+        [JsonProperty("stoppage")]
+        public int? Stoppage { get; set; }
+    }*/
 }
+
 

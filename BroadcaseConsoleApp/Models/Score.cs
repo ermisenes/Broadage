@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BroadcaseConsoleApp.Models
 {
-    public class xScore
+    public class Score
     {
-        public int regular { get; set; }
-        public int halfTime { get; set; }
-        public int current { get; set; }
+        public Nullable<int> regular { get; set; }
+        public Nullable<int> halfTime { get; set; }
+        public Nullable<int> penalties { get; set; }
+        public Nullable<int> extraTime { get; set; }
+        public Nullable<int> current { get; set; }
     }
 }

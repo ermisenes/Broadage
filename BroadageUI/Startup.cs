@@ -36,6 +36,13 @@ namespace BroadageUI
 
             services.AddScoped<IScoreService, ScoreService>();
             services.AddScoped<IScoreRepository, ScoreRepository>();
+
+            services.AddScoped<IMatchService, MatchService>();
+            services.AddScoped<IMatchRepository, MatchRepository>();
+
+            services.AddScoped<IHomeTeamService, HomeTeamService>();
+            services.AddScoped<IHomeTeamRepository, HomeTeamRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

@@ -27,7 +27,7 @@ namespace BroadageBusiness.Services
             {
                 TeamId = dtoObject.TeamId,
                 Current = 1,
-                EextraTime = null,
+                ExtraTime = null,
                 MatchId = dtoObject.MatchId,
                 Regular = 1,
                 HalfTime = 1,

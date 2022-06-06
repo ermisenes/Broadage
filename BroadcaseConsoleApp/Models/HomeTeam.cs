@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BroadcaseConsoleApp.Models
 {
-    public class xHomeTeam
+    public class HomeTeam
     {
         public Score score { get; set; }
         public string name { get; set; }

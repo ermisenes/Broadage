@@ -7,8 +7,9 @@ namespace BroadageEntity.Entities
     {
         public int MatchId { get; set; }
         public DateTime Date { get; set; }
-        public Nullable<int> CurrentMinute { get; set; }
         public Nullable<int> Stoppage { get; set; }
+        public Nullable<int> CurrentMinute { get; set; }
+
         public HomeTeam HomeTeam { get; set; }
         public AwayTeam AwayTeam { get; set; }
         public Status Status { get; set; }

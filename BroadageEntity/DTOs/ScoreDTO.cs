@@ -9,7 +9,7 @@ namespace BroadageEntity.DTOs
         public Nullable<int> Regular { get; set; }
         public Nullable<int> HalfTime { get; set; }
         public Nullable<int> Penalties { get; set; }
-        public Nullable<int> EextraTime { get; set; }
+        public Nullable<int> ExtraTime { get; set; }
         public Nullable<int> Current { get; set; }
 
     }

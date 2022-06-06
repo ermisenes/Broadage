@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BroadcaseConsoleApp.Models
 {
-    public class xRound
+    public class Round
     {
         public string name { get; set; }
         public string shortName { get; set; }
