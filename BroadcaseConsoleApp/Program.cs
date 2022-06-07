@@ -236,6 +236,7 @@ namespace BroadageConsoleApp
                             MatchId = match.id,
                             RoundId = match.round.id,
                             StageId = match.stage.id,
+                            StatusId=match.status.id,
                             Date = match.date,
                             TournamentId = match.tournament.id,
                             Stoppage = match.times == null ? null : match.times.stoppage,

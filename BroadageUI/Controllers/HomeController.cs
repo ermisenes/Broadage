@@ -34,8 +34,8 @@ namespace BroadageUI.Controllers
 
         public IActionResult Index()
         {
-            var deneme = _matchService.GetMatchListAll().Result;
-            return View();
+            var result = _matchService.GetMatchListAll().Result.Result;
+            return View(result);
         }
 
         public IActionResult Privacy()

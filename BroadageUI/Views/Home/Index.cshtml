@@ -1,8 +1,60 @@
-﻿@{
+﻿@using BroadageEntity.DTOs
+@model List<MatchDTO>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                     <th scope="col">Maç Id</th>
+                    <th scope="col">Ev Takımı</th>
+                    <th scope="col">Deplasman Takımı</th>
+                    <th scope="col">Sezon</th>
+                    <th scope="col">
+                        Durum
+                    </th>
+                    <th scope="col">Tarih</th>
+                    <th scope="col">Turnuva Adı</th>
+                    <th scope="col">Round Adı</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.HomeTeam.Name
+                    </td>
+                    <td>
+                        @item.AwayTeam.Name
+                    </td>
+                    <td>
+                        @item.Stage.Name
+                    </td>
+                    <td>
+                        @item.Status.Name
+                    </td>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.Tournament.Name
+                    </td>
+                    <td>
+                        @item.Round.Name
+                    </td>
+                
+                </tr>
+            }
+        </table>
+        
+    }
+
 </div>
