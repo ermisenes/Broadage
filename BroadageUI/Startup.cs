@@ -40,7 +40,6 @@ namespace BroadageUI
             });
 
             services.AddSingleton<ILoggerManager, LoggerManager>();
-
             services.AddScoped<IScoreService, ScoreService>();
             services.AddScoped<IScoreRepository, ScoreRepository>();
 
@@ -49,6 +48,21 @@ namespace BroadageUI
 
             services.AddScoped<IHomeTeamService, HomeTeamService>();
             services.AddScoped<IHomeTeamRepository, HomeTeamRepository>();
+
+            services.AddScoped<IAwayTeamService, AwayTeamService>();
+            services.AddScoped<IAwayTeamRepository, AwayTeamRepository>();
+
+            services.AddScoped<IRoundService, RoundService>();
+            services.AddScoped<IRoundRepository, RoundRepository>();
+
+            services.AddScoped<ITournamentService, TournamentService>();
+            services.AddScoped<ITournamentRepository, TournamentRepository>();
+
+            services.AddScoped<IStageService, StageService>();
+            services.AddScoped<IStageRepository, StageRepository>();
+
+            services.AddScoped<IStatusService, StatusService>();
+            services.AddScoped<IStatusRepository, StatusRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

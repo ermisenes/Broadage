@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BroadageEntity.IRepositories
 {
-    public interface IMatchRepository : IRepository<Match,int>
+    public interface IMatchRepository : IRepository<Match, int>
     {
     }
 }

@@ -28,9 +28,15 @@ namespace BroadageBusiness.Services
             //TODO: MAÇ ekle sonraya bıraktım
             await _unitOfWork.Matches.AddAsync(new Match()
             {
-             MatchId=dtoObject.MatchId,
-             Date=dtoObject.Date
-             
+                AwayTeamId = dtoObject.AwayTeamId,
+                HomeTeamId = dtoObject.HomeTeamId,
+                Id = dtoObject.MatchId,
+                RoundId = dtoObject.RoundId,
+                StageId = dtoObject.StageId,
+                Date = dtoObject.Date,
+                TournamentId = dtoObject.TournamentId,
+                Stoppage = dtoObject.Stoppage,
+                CurrentMinute = dtoObject.CurrentMinute
             });
 
 
@@ -60,8 +66,8 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<MatchDTO>> GetByIdAsync(int id)
         {
-            Match score = await _unitOfWork.Matches.GetByIdAsync(id);
-            MatchDTO scoreDTO = _mapper.Map<MatchDTO>(score);
+            Match match = await _unitOfWork.Matches.GetByIdAsync(id);
+            MatchDTO scoreDTO = _mapper.Map<MatchDTO>(match);
 
             return new ServiceResponse<MatchDTO>(scoreDTO);
         }

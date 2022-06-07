@@ -29,7 +29,7 @@ namespace BroadageBusiness.Services
                 Name=dtoObject.Name,
                 MediumName=dtoObject.MediumName,
                 ShortName=dtoObject.ShortName,
-                ScoreId=dtoObject.Scores.Id
+                ScoreId = dtoObject.ScoreId
             });
 
 

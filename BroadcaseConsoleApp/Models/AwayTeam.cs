@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BroadcaseConsoleApp.Models
 {
-    public class AwayTeam
+    public class JsonAwayTeam
     {
-        public xScore score { get; set; }
+        public JsonScore score { get; set; }
         public string name { get; set; }
         public string shortName { get; set; }
         public string mediumName { get; set; }

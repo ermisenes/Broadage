@@ -21,19 +21,18 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(ScoreDTO dtoObject)
         {
-            //  Score entity = _mapper.Map<Score>(dtoObject);
+           //Score entity = _mapper.Map<Score>(dtoObject);
 
             await _unitOfWork.Scores.AddAsync(new Score()
             {
                 TeamId = dtoObject.TeamId,
-                Current = 1,
-                ExtraTime = null,
+                Current = dtoObject.Current,
+                ExtraTime = dtoObject.ExtraTime,
                 MatchId = dtoObject.MatchId,
-                Regular = 1,
-                HalfTime = 1,
-                Penalties = null,
+                Regular = dtoObject.Regular,
+                HalfTime = dtoObject.HalfTime,
+                Penalties = dtoObject.Penalties,
             });
-
 
             //await _unitOfWork.Scores.AddAsync(entity);
             await _unitOfWork.CommitAsync();

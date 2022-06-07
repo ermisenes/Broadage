@@ -20,7 +20,7 @@ namespace BroadageData.Repositories
 
         public async Task AddAsync(TEntity entity)
         {
-            await _dbDataContext.Set<TEntity>().AddAsync(entity);
+            await _dbDataContext.Set<TEntity>().AddAsync(entity);     
         }
 
         public Task UpdateAsync(TEntity entity)
