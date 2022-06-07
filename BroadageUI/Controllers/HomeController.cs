@@ -24,8 +24,6 @@ namespace BroadageUI.Controllers
         private readonly IMatchService _matchService;
         private readonly IHomeTeamService _homeTeamService;
         private readonly IAwayTeamService _awayTeamService;
-
-
         public HomeController(ILogger<HomeController> logger, IMatchService matchService, IHomeTeamService homeTeamService, IAwayTeamService awayTeamService)
         {
             _logger = logger;
@@ -36,11 +34,7 @@ namespace BroadageUI.Controllers
 
         public IActionResult Index()
         {
-            var dfsasd = _matchService.GetByIdAsync(10).Result;
-            var derw = _matchService.GetAllAsync().Result;
-
-            var qwe = _homeTeamService.GetAllAsync().Result;
-            var qwqwe = _awayTeamService.GetAllAsync().Result;
+            var deneme = _matchService.GetMatchListAll().Result;
             return View();
         }
 

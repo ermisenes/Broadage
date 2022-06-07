@@ -58,10 +58,10 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<List<MatchDTO>>> GetAllAsync()
         {
-            List<Match> scores = await _unitOfWork.Matches.GetAllAsync();
-            List<MatchDTO> scoreDTOs = _mapper.Map<List<MatchDTO>>(scores);
+            List<Match> matches = await _unitOfWork.Matches.GetAllAsync();
+            List<MatchDTO> matchDTOs = _mapper.Map<List<MatchDTO>>(matches);
 
-            return new ServiceResponse<List<MatchDTO>>(scoreDTOs);
+            return new ServiceResponse<List<MatchDTO>>(matchDTOs);
         }
 
         public async Task<ServiceResponse<MatchDTO>> GetByIdAsync(int id)
@@ -72,6 +72,12 @@ namespace BroadageBusiness.Services
             return new ServiceResponse<MatchDTO>(scoreDTO);
         }
 
+        public async Task<ServiceResponse<List<MatchDTO>>> GetMatchListAll()
+        {
+            List<Match> matches = await _unitOfWork.Matches.GetMatchListAll();
+            List<MatchDTO> matchDTOs = _mapper.Map<List<MatchDTO>>(matches);
+            return new ServiceResponse<List<MatchDTO>>(matchDTOs);
+        }
         public async Task<ServiceResponse<bool>> UpdateAsync(MatchDTO dtoObject)
         {
             Match entity = _mapper.Map<Match>(dtoObject);
@@ -80,7 +86,7 @@ namespace BroadageBusiness.Services
             await _unitOfWork.CommitAsync();
 
             return new ServiceResponse<bool>(true);
-
         }
+
     }
 }

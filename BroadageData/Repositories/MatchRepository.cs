@@ -1,9 +1,8 @@
-﻿using BroadageEntity.Entities;
+﻿using BroadageEntity.DTOs;
+using BroadageEntity.Entities;
 using BroadageEntity.IRepositories;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BroadageData.Repositories
@@ -13,5 +12,26 @@ namespace BroadageData.Repositories
         public MatchRepository(BroadageDBContext dbDataContext) : base(dbDataContext)
         {
         }
+        public async Task<List<Match>> GetMatchListAll()
+        {
+                /*var deneme = _dbDataContext.Matches.
+                Include(x => x.AwayTeam)
+                .Include(x => x.HomeTeam)
+                .Include(x => x.Tournament)
+                .Include(x => x.Round)
+                .Include(x => x.Status)
+                .Include(x => x.Stage).ToList();*/
+            
+           var result = _dbDataContext.Set<Match>().
+           Include(x => x.AwayTeam)
+          .Include(x => x.HomeTeam)
+          .Include(x => x.Tournament)
+          .Include(x => x.Round)
+          .Include(x => x.Status)
+          .Include(x => x.Stage).ToListAsync();
+
+            return await result;
+        }
+
     }
 }

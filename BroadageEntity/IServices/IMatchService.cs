@@ -9,5 +9,6 @@ namespace BroadageEntity.IServices
 {
     public interface IMatchService : IService<MatchDTO, int>
     {
+        Task<ServiceResponse<List<MatchDTO>>> GetMatchListAll();
     }
 }

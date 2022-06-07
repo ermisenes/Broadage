@@ -44,6 +44,9 @@ namespace BroadageConsoleApp
 
         static async Task Main(string[] args)
         {
+
+
+
             var dfs = LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "\\Nlog.config"));
             var services = new ServiceCollection();
             services.AddDbContext<BroadageDBContext>(options =>
@@ -98,6 +101,11 @@ namespace BroadageConsoleApp
             _statusService = serviceProvider.GetService<IStatusService>();
             _appDbContext = serviceProvider.GetService<BroadageDBContext>();
 
+
+            var homeTeamScoreIdxx = await _scoreService.GetByMatchIdAndTeamIdAsync(1579291, 2200);
+
+
+
             string key = "842824df-e28b-4ed9-90b9-b01f12102538";
             string languageId = "2";
 
@@ -110,10 +118,10 @@ namespace BroadageConsoleApp
             {
                 todaysDate = String.Concat("0", todaysDate);
             }
-            
+
             var url = $"https://s0-sports-data-api.broadage.com/soccer/match/list?date=03/06/2022";
             using var client = new HttpClient();
-           
+
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
             client.DefaultRequestHeaders.Add("languageId", languageId);
 
@@ -159,6 +167,7 @@ namespace BroadageConsoleApp
 
                         var homeTeamScoreId = _scoreService.GetByMatchIdAndTeamIdAsync(match.id
                             , match.homeTeam.id).Result.Result.Id;
+
                         var awayTeamScoreId = _scoreService.GetByMatchIdAndTeamIdAsync(match.id
                           , match.awayTeam.id).Result.Result.Id;
 
@@ -217,13 +226,13 @@ namespace BroadageConsoleApp
                                 ShortName = match.round.shortName
                             });
                         }
-                       
+
                         var AwayTeamId = _appDbContext.AwayTeams.SingleOrDefaultAsync(x => x.ScoreId == awayTeamScoreId && x.AwayTeamId == x.Score.TeamId).Result;
                         var HomeTeamId = _appDbContext.HomeTeams.SingleOrDefaultAsync(x => x.ScoreId == homeTeamScoreId && x.HomeTeamId == x.Score.TeamId).Result;
                         await _matchService.CreateAsync(new MatchDTO
                         {
-                            AwayTeamId =AwayTeamId.Id,
-                            HomeTeamId =HomeTeamId.Id,
+                            AwayTeamId = AwayTeamId.Id,
+                            HomeTeamId = HomeTeamId.Id,
                             MatchId = match.id,
                             RoundId = match.round.id,
                             StageId = match.stage.id,
@@ -231,10 +240,10 @@ namespace BroadageConsoleApp
                             TournamentId = match.tournament.id,
                             Stoppage = match.times == null ? null : match.times.stoppage,
                             CurrentMinute = match.times == null ? null : match.times.currentMinute
-                        });;
+                        }); ;
 
 
-                        Console.WriteLine(match.id+ "'li maç kaydı tamamlandı");
+                        Console.WriteLine(match.id + "'li maç kaydı tamamlandı");
                     }
                     else
                     {

@@ -9,5 +9,6 @@ namespace BroadageEntity.IRepositories
 {
     public interface IMatchRepository : IRepository<Match, int>
     {
+        Task<List<Match>> GetMatchListAll();
     }
 }
