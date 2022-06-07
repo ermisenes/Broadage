@@ -14,14 +14,6 @@ namespace BroadageData.Repositories
         }
         public async Task<List<Match>> GetMatchListAll()
         {
-                /*var deneme = _dbDataContext.Matches.
-                Include(x => x.AwayTeam)
-                .Include(x => x.HomeTeam)
-                .Include(x => x.Tournament)
-                .Include(x => x.Round)
-                .Include(x => x.Status)
-                .Include(x => x.Stage).ToList();*/
-            
            var result = _dbDataContext.Set<Match>().
            Include(x => x.AwayTeam)
           .Include(x => x.HomeTeam)

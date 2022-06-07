@@ -30,7 +30,7 @@ namespace BroadageBusiness.Services
             {
                 AwayTeamId = dtoObject.AwayTeamId,
                 HomeTeamId = dtoObject.HomeTeamId,
-                Id = dtoObject.MatchId,
+                Id = dtoObject.Id,
                 RoundId = dtoObject.RoundId,
                 StageId = dtoObject.StageId,
                 Date = dtoObject.Date,
