@@ -37,16 +37,12 @@ namespace BroadageConsoleApp
         private static IStageService _stageService;
         private static IStatusService _statusService;
 
-
         private static BroadageDBContext _appDbContext;
         private static ILoggerManager _loggerManager;
 
 
         static async Task Main(string[] args)
         {
-
-
-
             var dfs = LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "\\Nlog.config"));
             var services = new ServiceCollection();
             services.AddDbContext<BroadageDBContext>(options =>
@@ -103,8 +99,6 @@ namespace BroadageConsoleApp
 
 
             var homeTeamScoreIdxx = await _scoreService.GetByMatchIdAndTeamIdAsync(1579291, 2200);
-
-
 
             string key = "842824df-e28b-4ed9-90b9-b01f12102538";
             string languageId = "2";
@@ -250,7 +244,6 @@ namespace BroadageConsoleApp
                     {
                         await Console.Out.WriteLineAsync("Daha önce kayıt yapılmış:" + match.id);
                     }
-
                 }
             }
         }

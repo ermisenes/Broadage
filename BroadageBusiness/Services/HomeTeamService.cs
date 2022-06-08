@@ -21,8 +21,6 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(HomeTeamDTO dtoObject)
         {
-             // HomeTeam entity = _mapper.Map<HomeTeam>(dtoObject);
-
             await _unitOfWork.HomeTeams.AddAsync(new HomeTeam()
             {
                 HomeTeamId = dtoObject.HomeTeamId,
@@ -32,9 +30,7 @@ namespace BroadageBusiness.Services
                 ScoreId = dtoObject.ScoreId
             });
 
-           // await _unitOfWork.HomeTeams.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-
             return new ServiceResponse<bool>(true);
         }
 

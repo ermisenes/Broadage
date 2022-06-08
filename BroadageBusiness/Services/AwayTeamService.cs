@@ -21,8 +21,6 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(AwayTeamDTO dtoObject)
         {
-            //  AwayTeam entity = _mapper.Map<AwayTeam>(dtoObject);
-
             await _unitOfWork.AwayTeams.AddAsync(new AwayTeam()
             {
                 AwayTeamId = dtoObject.AwayTeamId,
@@ -32,10 +30,7 @@ namespace BroadageBusiness.Services
                 ScoreId = dtoObject.ScoreId
             });
 
-
-            //await _unitOfWork.AwayTeams.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-
             return new ServiceResponse<bool>(true);
         }
 
@@ -72,7 +67,6 @@ namespace BroadageBusiness.Services
             await _unitOfWork.CommitAsync();
 
             return new ServiceResponse<bool>(true);
-
         }
     }
 }

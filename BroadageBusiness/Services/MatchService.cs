@@ -24,8 +24,6 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(MatchDTO dtoObject)
         {
-            //  Score entity = _mapper.Map<Score>(dtoObject);
-            //TODO: MAÇ ekle sonraya bıraktım
             await _unitOfWork.Matches.AddAsync(new Match()
             {
                 AwayTeamId = dtoObject.AwayTeamId,
@@ -40,10 +38,7 @@ namespace BroadageBusiness.Services
                 CurrentMinute = dtoObject.CurrentMinute
             });
 
-
-            //await _unitOfWork.Matches.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-
             return new ServiceResponse<bool>(true);
         }
 

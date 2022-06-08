@@ -21,8 +21,6 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(TournamentDTO dtoObject)
         {
-            //  Tournament entity = _mapper.Map<Tournament>(dtoObject);
-
             await _unitOfWork.Tournaments.AddAsync(new Tournament()
             {
                 Id= dtoObject.Id,
@@ -30,10 +28,7 @@ namespace BroadageBusiness.Services
                 ShortName=dtoObject.ShortName
             });
 
-
-            //await _unitOfWork.Tournaments.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-
             return new ServiceResponse<bool>(true);
         }
 
@@ -70,7 +65,6 @@ namespace BroadageBusiness.Services
             await _unitOfWork.CommitAsync();
 
             return new ServiceResponse<bool>(true);
-
         }
     }
 }

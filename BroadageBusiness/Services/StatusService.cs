@@ -21,8 +21,6 @@ namespace BroadageBusiness.Services
 
         public async Task<ServiceResponse<bool>> CreateAsync(StatusDTO dtoObject)
         {
-            //  Status entity = _mapper.Map<Status>(dtoObject);
-
             await _unitOfWork.Statuses.AddAsync(new Status()
             {
                 Id= dtoObject.Id,
@@ -30,10 +28,7 @@ namespace BroadageBusiness.Services
                 ShortName=dtoObject.ShortName
             });
 
-
-            //await _unitOfWork.Statuses.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-
             return new ServiceResponse<bool>(true);
         }
 
@@ -70,7 +65,6 @@ namespace BroadageBusiness.Services
             await _unitOfWork.CommitAsync();
 
             return new ServiceResponse<bool>(true);
-
         }
     }
 }

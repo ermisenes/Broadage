@@ -27,7 +27,6 @@ namespace BroadageData.Repositories
            .AsNoTracking()
            .ToListAsync();
 
-
             return await result;
         }
 
