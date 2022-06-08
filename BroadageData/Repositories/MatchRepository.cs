@@ -24,10 +24,8 @@ namespace BroadageData.Repositories
            .Include(x => x.Stage)
            .Include(x => x.HomeTeam).ThenInclude(x => x.Score)
            .Include(x => x.AwayTeam).ThenInclude(x => x.Score)
-           .OrderByDescending(x => x.Date)
            .AsNoTracking()
            .ToListAsync();
-
 
 
             return await result;

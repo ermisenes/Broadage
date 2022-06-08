@@ -233,7 +233,7 @@ namespace BroadageConsoleApp
                         {
                             AwayTeamId = AwayTeamId.Id,
                             HomeTeamId = HomeTeamId.Id,
-                            MatchId = match.id,
+                            Id = match.id,
                             RoundId = match.round.id,
                             StageId = match.stage.id,
                             StatusId=match.status.id,

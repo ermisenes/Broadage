@@ -22,14 +22,11 @@ namespace BroadageBusiness.AutoMapping
             CreateMap<Status, StatusDTO>();
             CreateMap<Tournament, TournamentDTO>();
            
-
-
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Score, HomeTeamDTO>();
                 cfg.CreateMap<Score, AwayTeamDTO>();
             });
-
         }
     }
 }

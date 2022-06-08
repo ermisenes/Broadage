@@ -8,7 +8,6 @@ namespace BroadageEntity.DTOs
 {
     public class MatchDTO : DTOBase<int>
     {
-        public int MatchId { get; set; }
         public DateTime Date { get; set; }
         public Nullable<int> CurrentMinute { get; set; }
         public Nullable<int> Stoppage { get; set; }

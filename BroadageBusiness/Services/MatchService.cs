@@ -34,6 +34,7 @@ namespace BroadageBusiness.Services
                 RoundId = dtoObject.RoundId,
                 StageId = dtoObject.StageId,
                 Date = dtoObject.Date,
+                StatusId=dtoObject.StatusId,
                 TournamentId = dtoObject.TournamentId,
                 Stoppage = dtoObject.Stoppage,
                 CurrentMinute = dtoObject.CurrentMinute
