@@ -43,7 +43,8 @@ namespace BroadageConsoleApp
 
         static async Task Main(string[] args)
         {
-            var dfs = LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "\\Nlog.config"));
+            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "\\Nlog.config"));
+            
             var services = new ServiceCollection();
             services.AddDbContext<BroadageDBContext>(options =>
                    options.UseSqlServer(@"Server=DESKTOP-ERJ7DJG\SQLEXPRESS;Database=BroadageSportsDB;Trusted_Connection=True;"));
@@ -96,9 +97,7 @@ namespace BroadageConsoleApp
             _stageService = serviceProvider.GetService<IStageService>();
             _statusService = serviceProvider.GetService<IStatusService>();
             _appDbContext = serviceProvider.GetService<BroadageDBContext>();
-
-
-            var homeTeamScoreIdxx = await _scoreService.GetByMatchIdAndTeamIdAsync(1579291, 2200);
+            _loggerManager = serviceProvider.GetService<ILoggerManager>();
 
             string key = "842824df-e28b-4ed9-90b9-b01f12102538";
             string languageId = "2";
@@ -135,7 +134,7 @@ namespace BroadageConsoleApp
                     if (_matchService.GetByIdAsync(match.id).Result.Result == null)
                     {
                         await Console.Out.WriteLineAsync("Api'den gelen veriler DB yazılmaya başladı...");
-
+                        _loggerManager.LogInfo("Api'den gelen veriler DB yazılmaya başladı...");
                         await _scoreService.CreateAsync(new ScoreDTO
                         {
                             TeamId = match.awayTeam.id,
@@ -230,18 +229,19 @@ namespace BroadageConsoleApp
                             Id = match.id,
                             RoundId = match.round.id,
                             StageId = match.stage.id,
-                            StatusId=match.status.id,
+                            StatusId = match.status.id,
                             Date = match.date,
                             TournamentId = match.tournament.id,
                             Stoppage = match.times == null ? null : match.times.stoppage,
                             CurrentMinute = match.times == null ? null : match.times.currentMinute
                         }); ;
 
-
                         Console.WriteLine(match.id + "'li maç kaydı tamamlandı");
+                        _loggerManager.LogInfo(match.id + "'li maç kaydı tamamlandı");
                     }
                     else
                     {
+                        _loggerManager.LogInfo("Daha önce kayıt yapılmış:" + match.id);
                         await Console.Out.WriteLineAsync("Daha önce kayıt yapılmış:" + match.id);
                     }
                 }
